@@ -1,0 +1,38 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "JiaolongControlConsole",
+  "asar": true,
+  "productName": "JiaolongControlConsole",
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": [
+    "dist",
+    "dist-electron"
+  ],
+  "win": {
+    "requestedExecutionLevel": "requireAdministrator",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "${productName}-Windows-${version}-Setup.${ext}",
+    icon: "./public/electron-icon.icon"
+  },
+  "portable": {
+    "requestExecutionLevel": "admin"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  }
+}
